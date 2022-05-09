@@ -1,0 +1,25 @@
+{
+    "name": "alpshq/statamic-blueprint-name",
+    "description": "Show the blueprint name in Statamic CP listings.",
+    "license": "proprietary",
+    "type": "statamic-addon",
+    "autoload": {
+        "psr-4": {
+            "Alps\\BlueprintName\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Blueprint Name",
+            "description": "Show the blueprint name in Statamic CP listings."
+        },
+        "laravel": {
+            "providers": [
+                "Alps\\BlueprintName\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "statamic/cms": "^3.3"
+    }
+}
