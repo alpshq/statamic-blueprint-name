@@ -8,11 +8,16 @@ use Statamic\Statamic;
 class ServiceProvider extends \Statamic\Providers\AddonServiceProvider
 {
     protected $stylesheets = [
-        __DIR__ . '/../dist/js/blueprint-name.css',
+        __DIR__ . '/../dist/css/blueprint-name.css',
     ];
 
     protected $scripts = [
         __DIR__ . '/../dist/js/blueprint-name.js',
+    ];
+
+    protected $publishables = [
+        __DIR__ . '/../dist/css' => 'css',
+        __DIR__ . '/../dist/js' => 'js',
     ];
 
     protected $fieldtypes = [
