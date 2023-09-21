@@ -15,9 +15,10 @@ class BlueprintFilter
     use HasFields;
 
     private Fieldtype $fieldtype;
+
     private ?EntryCollection $collection;
 
-    public function __construct(Fieldtype $fieldtype, ?EntryCollection $collection = null)
+    public function __construct(Fieldtype $fieldtype, EntryCollection $collection = null)
     {
         $this->fieldtype = $fieldtype;
         $this->collection = $collection;
@@ -40,7 +41,7 @@ class BlueprintFilter
 
     private function getBlueprints(): Collection
     {
-        if (!$this->collection) {
+        if (! $this->collection) {
             return new Collection;
         }
 
@@ -50,7 +51,7 @@ class BlueprintFilter
     public function fieldItems()
     {
         $options = $this->getBlueprints()
-            ->map(function(Blueprint $blueprint) {
+            ->map(function (Blueprint $blueprint) {
                 return [
                     'handle' => $blueprint->namespace() . '.' . $blueprint->handle(),
                     'label' => $blueprint->title(),
@@ -65,6 +66,7 @@ class BlueprintFilter
             ],
         ];
     }
+
     public function apply($query, $handle, $values)
     {
         $blueprintHandle = $values['value'];

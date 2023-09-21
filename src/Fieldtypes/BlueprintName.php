@@ -40,13 +40,13 @@ class BlueprintName extends \Statamic\Fields\Fieldtype
 
     private function getBlueprint(): ?Blueprint
     {
-        if (!$this->field() || !$this->field()->parent()) {
+        if (! $this->field() || ! $this->field()->parent()) {
             return null;
         }
 
         $parent = $this->field()->parent();
 
-        if (!$parent instanceof Entry) {
+        if (! $parent instanceof Entry) {
             return null;
         }
 
@@ -79,40 +79,38 @@ class BlueprintName extends \Statamic\Fields\Fieldtype
         return $this->getBlueprintName($data);
     }
 
-//    public function preProcess($data)
-//    {
-//        return $this->getBlueprintName($data);
-//    }
-//
-//    public function process($data)
-//    {
-//        return $this->getBlueprintHandle($data);
-//    }
+    //    public function preProcess($data)
+    //    {
+    //        return $this->getBlueprintName($data);
+    //    }
+    //
+    //    public function process($data)
+    //    {
+    //        return $this->getBlueprintHandle($data);
+    //    }
 
-//    public function preProcess($data)
-//    {
-//        return $this->getBlueprintHandle($data);
-//        return $data;
-//    }
+    //    public function preProcess($data)
+    //    {
+    //        return $this->getBlueprintHandle($data);
+    //        return $data;
+    //    }
 
-//    public function preProcessIndex($value)
-//    {
-//        return $this->getBlueprintName($value);
-//    }
+    //    public function preProcessIndex($value)
+    //    {
+    //        return $this->getBlueprintName($value);
+    //    }
 
-//
+    //    public function toQueryableValue($value)
+    //    {
+    //        return $this->getBlueprintHandle($value);
+    //    }
 
-//    public function toQueryableValue($value)
-//    {
-//        return $this->getBlueprintHandle($value);
-//    }
-
-//    public function toQueryableValue($value)
-//    {
-//        $blueprint = $this->getBlueprint();
-//
-////        dump($blueprint->handle());
-//
-//        return $blueprint ? $blueprint->handle() : $value;
-//    }
+    //    public function toQueryableValue($value)
+    //    {
+    //        $blueprint = $this->getBlueprint();
+    //
+    // //        dump($blueprint->handle());
+    //
+    //        return $blueprint ? $blueprint->handle() : $value;
+    //    }
 }
